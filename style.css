@@ -1,0 +1,311 @@
+/*
+ Theme Name: Live Scoring Fantasy League Theme
+*/
+
+/* Reset default styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header and Footer Styling */
+.site-header,
+.site-footer {
+    background-color: #0033a0; /* Blue on hover */
+    color: #ffffff;
+    padding: 15px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Limit the container width */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Logo Styling */
+.site-logo {
+    flex-shrink: 0; /* Prevent the logo from stretching */
+}
+
+.site-logo img {
+    max-height: 60px; /* Limit the logo height */
+    width: auto; /* Keep aspect ratio */
+    display: block;
+}
+
+/* Main Navigation */
+.main-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align the menu to the right */
+    flex-grow: 1; /* Allow the menu to take remaining space */
+	position: relative; /* Ensure child elements can be absolutely positioned */
+}
+
+.main-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-navigation ul li {
+    margin-right: 20px;
+    position: relative; /* Needed for dropdown positioning */
+}
+
+.main-navigation ul li a {
+    color: #ffffff; /* White text on blue background */
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Menu Hover Effects */
+.main-navigation ul li a:hover {
+    background-color: #e30613; /* Red on hover */
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+/* Active Menu Item */
+.main-navigation ul li.current-menu-item a {
+    background-color: #ffffff;
+    color: #0033a0; /* Primary Blue */
+    border-radius: 5px;
+}
+
+/* Dropdown Menu Styling */
+.main-navigation ul li ul {
+    display: none; /* Hide dropdown initially */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #e30613;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 9999;
+    min-width: 200px;
+}
+
+.main-navigation ul li ul li a {
+    padding: 10px 15px;
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+}
+
+.main-navigation ul li ul li a:hover {
+    background-color: #0033a0; /* Primary Blue */
+}
+
+/* Show dropdown on hover */
+.main-navigation ul li:hover > ul {
+    display: block;
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+    .main-navigation ul {
+        flex-direction: column;
+        display: none; /* Hide the menu initially on mobile */
+    }
+
+    .main-navigation ul.active {
+        display: flex; /* Show the menu when active */
+    }
+
+    .main-navigation ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    /* Dropdown inside mobile menu */
+    .main-navigation ul li ul {
+        position: static;
+        top: auto;
+    }
+
+    .main-navigation ul li ul li a {
+        padding-left: 30px;
+    }
+}
+
+/* Toggle Button for Mobile Menu */
+.menu-toggle {
+    display: none;
+    background-color: #e30613;
+    color: #ffffff;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+}
+
+.menu-toggle:hover {
+    background-color: #0033a0; /* Primary Blue */
+}
+
+/* Show toggle button on mobile */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Search Toggle Button */
+.search-toggle {
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor */
+    margin-left: 10px; /* Spacing */
+    transition: transform 0.3s; /* Smooth transition for animation */
+}
+
+.search-form {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position it absolutely */
+    top: 100%; /* Position below the navigation */
+    right: 0; /* Align to the right of the parent */
+    background-color: #0033a0; /* Background color */
+    padding: 10px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    z-index: 1000; /* Ensure it appears above other elements */
+    opacity: 0; /* Start as invisible */
+    visibility: hidden; /* Not visible */
+    transition: opacity 0.4s ease, visibility 0.4s ease; /* Smooth transition */
+}
+
+/* Search Field */
+.search-field {
+    width: 0; /* Initially no width */
+    padding: 5px; /* Padding */
+    font-size: 16px; /* Font size */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    transition: width 0.4s ease, opacity 0.4s ease; /* Smooth transition for width and opacity */
+    opacity: 0; /* Hidden */
+    visibility: hidden; /* Not visible */
+}
+/* Show Search Field when Active */
+.search-field.active {
+    width: 200px; /* Set to desired width when active */
+    opacity: 1; /* Make visible */
+    visibility: visible; /* Ensure visible */
+}
+
+/* Search Submit Button */
+.search-submit {
+    background-color: #e30613; /* Submit button color */
+    color: #ffffff; /* Submit text color */
+    border: none; /* No border */
+    padding: 5px 10px; /* Padding */
+    cursor: pointer; /* Cursor style */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.search-form.active {
+    display: block; /* Show when active */
+    opacity: 1; /* Make visible */
+    visibility: visible; /* Ensure visible */
+}
+
+/* Base styles for footer */
+.site-footer {
+    background-color: #0033a0; /* Footer background color */
+    color: #ffffff; /* Footer text color */
+    padding: 40px 20px; /* Padding around the footer */
+    text-align: center; /* Center text */
+}
+
+.footer-widgets {
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between widgets */
+    flex-wrap: wrap; /* Allow widgets to wrap on smaller screens */
+    max-width: 1200px; /* Limit the container width */
+    margin: 0 auto; /* Center the footer */
+}
+
+.footer-widget-area {
+    flex: 1; /* Each widget takes equal space */
+    min-width: 250px; /* Minimum width for each widget */
+    margin: 10px; /* Spacing between widgets */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.footer-widget-title {
+    font-size: 20px; /* Title font size */
+    margin-bottom: 15px; /* Space below title */
+    font-weight: bold; /* Make title bold */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .footer-widgets {
+        flex-direction: column; /* Stack widgets vertically */
+        align-items: center; /* Center align the widgets */
+    }
+
+    .footer-widget-area {
+        width: 100%; /* Each widget takes full width on smaller screens */
+        margin: 10px 0; /* Vertical margin for spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-widget-title {
+        font-size: 18px; /* Adjust title size for smaller screens */
+    }
+
+    .site-footer {
+        padding: 30px 10px; /* Reduce padding on small screens */
+    }
+}
+
+/* Paragraph styling for copyright */
+.site-footer p {
+    margin-top: 20px; /* Space above the copyright text */
+    font-size: 14px; /* Font size for copyright */
+    color: #ffffff; /* Ensure text is visible */
+}
+/* Footer Widget Title Styling */
+.footer-widget-title {
+    font-size: 20px; /* Font size for the header */
+    margin-bottom: 10px; /* Space below the header */
+    text-align: left; /* Align header text to the left */
+    color: #ffffff; /* White color for the header */
+}
+
+/* Additional Styling for Footer Lists */
+.site-footer ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.site-footer ul li {
+    text-align: left; /* Align text to the left */
+    margin: 5px 0; /* Space between list items */
+}
+
+/* Optional: Add styles for anchor tags in footer lists */
+.site-footer ul li a {
+    color: #ffffff; /* White text for links */
+    text-decoration: none; /* Remove underline from links */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.site-footer ul li a:hover {
+    color: #e30613; /* Change link color on hover */
+}
+
+
