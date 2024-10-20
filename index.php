@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php display_next_matches(); ?>
 
 <div class="container">
     <section class="match-cards">

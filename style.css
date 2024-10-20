@@ -74,7 +74,9 @@ body {
     color: #ffffff;
     border-radius: 5px;
 }
-
+.main-navigation ul li ul li a:hover {
+    background-color: #0033a0; /* Primary Blue */
+}
 /* Active Menu Item */
 .main-navigation ul li.current-menu-item a {
     background-color: #ffffff;
@@ -103,9 +105,6 @@ body {
     display: block;
 }
 
-.main-navigation ul li ul li a:hover {
-    background-color: #0033a0; /* Primary Blue */
-}
 
 /* Show dropdown on hover */
 .main-navigation ul li:hover > ul {
@@ -306,6 +305,101 @@ body {
 
 .site-footer ul li a:hover {
     color: #e30613; /* Change link color on hover */
+}
+.marquee-container {
+    max-width: 1200px;
+    margin: 0 auto; /* Center the marquee container */
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between; /* Distribute content to sides */
+    align-items: center;
+    position: relative;
+}
+
+.matches-marquee {
+    flex-grow: 1; /* Marquee should take up as much space as possible */
+    overflow: hidden;
+    white-space: nowrap;
+    margin-right: 20px;
+}
+
+.marquee-inner {
+    display: inline-block; /* Inline block to allow animation */
+    animation: marquee 15s linear infinite; /* Animation definition */
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%); /* Start from the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Move to the left */
+    }
+}
+
+.next-matches-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: auto; /* Pushes this element to the right */
+    text-align: right;
+    white-space: nowrap;
+    padding-left: 20px; /* Space from the marquee */
+}
+
+.matches-dropdown-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px; /* Space between marquee and dropdown */
+}
+
+.dropdown-toggle {
+    background-color: #0073aa;
+    color: white;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.dropdown-toggle:hover {
+    background-color: #005780;
+}
+
+.matches-dropdown {
+    display: none;
+    position: absolute;
+    right: 0; /* Ensure dropdown is aligned with the toggle button */
+    background-color: white;
+    min-width: 200px;
+    border: 1px solid #ddd;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.matches-dropdown a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.matches-dropdown a:hover {
+    background-color: #f1f1f1;
+}
+
+.matches-dropdown-container:hover .matches-dropdown {
+    display: block; /* Show dropdown when hovering */
+}
+
+@media (max-width: 768px) {
+    .next-matches-title,
+    .matches-dropdown-container {
+        display: none; /* Hide these on smaller screens for better visibility */
+    }
 }
 
 
